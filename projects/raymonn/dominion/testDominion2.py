@@ -20,8 +20,10 @@ else:
     nV = 8
 nC = -10 + 10 * len(player_names)
 
+#Refactored to testUtility.GetBoxes
 box = testUtility.GetBoxes(nV)
 
+#Refactored to testUtility.Supplies
 supply_order = testUtility.Supplies()
 
 # Pick 10 cards from box to be in the supply.
@@ -31,7 +33,9 @@ random10 = boxlist[:10]
 supply = defaultdict(list, [(k, box[k]) for k in random10])
 
 # The supply always has these cards
+#Refactored to testUtility.SupplySetup
 supply = testUtility.SupplySetup(supply, nV, nC, player_names)
+#Test Scenario
 supply["Duchy"] = [Dominion.Estate()] * 10
 
 # initialize the trash
@@ -39,6 +43,7 @@ trash = []
 
 # Costruct the Player objects
 players = []
+#Test Scenario
 player_names.append("Chris")
 players = testUtility.PlayerConstructor(players, player_names)
 
